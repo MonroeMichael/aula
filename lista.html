@@ -1,26 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+
+        ul {
+            list-style: none;
+            margin: 10;
+            padding: 10;
+        }
+
+
+        li {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid rgb(81, 4, 153);
+        }
+
+
+        input[type="text"] {
+            width: 80%;
+        }
+
+
+        input[type="button"] {
+            width: 10%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Lista de Tarefas do dever</h1>
+    <h1>Lista de Tarefas</h1>
+    <div id="container">
+        <ul id="todo-list">
 
-   <script>
+        </ul>
+        <input type="text" id="todo-input" placeholder="Digite uma nova tarefa">
+        <input type="button" id="todo-button" value="Adicionar">
+    </div>
+    <script>
+        var todoList = document.getElementById("todo-list");
+        var todoInput = document.getElementById("todo-input");
+        var todoButton = document.getElementById("todo-button");
 
-    var Lista = ["comprar cafe", "caçar gatos", "comer cachorro quente", "dominar o mundo", "comprar cafe de nova"];
-    var btn = document.createElement("BUTTON");
-    btn.innerHTML = "Clique";
-    
-    btn.onclick = function() {
-        alert(Lista);
-    }
-    
-    document.body.appendChild(btn);
-    
-   </script>
-    
+
+        todoButton.addEventListener("click", function() {
+            var todo = todoInput.value;
+
+
+            if (todo) {
+                var li = document.createElement("li");
+                li.textContent = todo;
+
+
+                todoList.appendChild(li);
+
+
+                todoInput.value = "";
+            }
+        });
+    </script>
 </body>
 </html>
+
