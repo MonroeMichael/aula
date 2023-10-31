@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>Relógio Digital</title>
+  <style>
+    body {
+      background-color: rgb(80, 13, 76);
+      color: rgba(0, 0, 0, 0.856);
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #clock {
+      font-size: 5em;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Relogio Digital</h1>
+  <div id="clock"></div>
+  <script>
+    function pad(n) {
+      return n < 10 ? "0" + n : n;
+    }
+
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      var time = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+      document.getElementById("clock").innerHTML = time;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
